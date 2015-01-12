@@ -2,5 +2,9 @@ Comandos do Git:
 
 Git init (inicia o git naquela pasta)
 Git status (mostra o status do repositorio)
-git add . ou git add nome_do_arquivo (commita o arquivo)
+git add . ou git add nome_do_arquivo (adiciona o arquivo para seu pacote de trabalho)
 git reset (tira tudo da index)
+git commit -m "Commit inicial do arquivo" (commita o pacote de trabalho [ainda mantido em seu local])
+git config --global user.mail filipe.maua@gmail.com (configura o usuário do git)
+git remote add origin https://github.com/filipeprado1/TesteGit.git (adicionar o seu servidor remoto)
+git push origin master (manda para o repositorio web)
