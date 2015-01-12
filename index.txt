@@ -1,0 +1,6 @@
+Comandos do Git:
+
+Git init (inicia o git naquela pasta)
+Git status (mostra o status do repositorio)
+git add . ou git add nome_do_arquivo (commita o arquivo)
+git reset (tira tudo da index)
