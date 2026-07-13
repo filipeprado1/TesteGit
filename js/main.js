@@ -104,6 +104,27 @@
     });
   }
 
+  /* ---- Máscara dinâmica de telefone / celular ---- */
+  var foneEl = document.getElementById('fone');
+  if (foneEl) {
+    foneEl.setAttribute('inputmode', 'tel');
+    foneEl.setAttribute('autocomplete', 'tel');
+    var maskFone = function (value) {
+      var d = value.replace(/\D/g, '').slice(0, 11); // só dígitos, máx. 11 (DDD + 9)
+      var n = d.length;
+      if (n === 0) return '';
+      if (n < 3) return '(' + d;                                              // (11
+      if (n <= 6) return '(' + d.slice(0, 2) + ') ' + d.slice(2);            // (11) 2098
+      if (n <= 10) return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);   // fixo:    (11) 2098-2525
+      return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);                // celular: (11) 98765-4321
+    };
+    foneEl.addEventListener('input', function () {
+      var atEnd = this.selectionStart === this.value.length;
+      this.value = maskFone(this.value);
+      if (atEnd) { var end = this.value.length; this.setSelectionRange(end, end); }
+    });
+  }
+
   /* ============================================================
      Hero canvas — partículas + feixes de laser (verde/dourado)
      ============================================================ */
